@@ -95,7 +95,7 @@ ReadWritePaths=/var/lib/uomi
 WantedBy=multi-user.target
 ```
 
-> 🟢 **Note:** Change `node-namwe` to all you want eg `claudya`
+> 🟢 **Note:** Change `node-name` to all you want eg `claudya`
 
 ---
 

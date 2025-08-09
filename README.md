@@ -1,6 +1,5 @@
 # 🚀 Uomi Archive Node Setup Guide
 
-> **Update**:  
 > 🎉 **50,000,000 $UOMI** tokens have been allocated to reward node operators starting from this **testnet**!
 
 ---
@@ -30,25 +29,11 @@ sudo useradd --no-create-home --shell /usr/sbin/nologin uomi && sudo mkdir -p /v
 
 ## 3️⃣ Install & Configure Node
 
+> Get available peers at https://app.uomi.ai/peers
+
 ### 📥 Download & Update `genesis.json`
 ```bash
-cd $HOME && mkdir uomi && cd $HOME/uomi && wget -O genesis.json https://github.com/Uomi-network/uomi-node/releases/latest/download/genesis.json && jq '.bootNodes = [
-  "/ip4/140.245.100.68/tcp/30333/ws/p2p/12D3KooWA7MnHnFkFjkon6Gr7QekARkDwMYCV9F1GBQnzAEviJ9K",
-  "/ip4/135.181.254.83/tcp/30333/p2p/12D3KooWAPL9NeVH3hmCxdumjnBLba5RufSzv7b6ug5hDzMB5BPQ",
-  "/ip4/193.253.183.22/tcp/30333/p2p/12D3KooWARwm8Rqxj7BHqyTcWVEMTX35YaCPN7eCc7HgxViKBHK9",
-  "/ip4/142.132.171.138/tcp/30333/ws/p2p/12D3KooWBmMjDCouXfsdYSHLDQMWBDzz44AgRZxnD7SCy6rBzzNz",
-  "/ip4/5.9.87.231/tcp/30333/ws/p2p/12D3KooWCAChuDHHpNER855r6NpAGDeLrSZ4U3sP6FocSWWJZDf5",
-  "/ip4/95.214.55.87/tcp/30333/p2p/12D3KooWE7yggjMVV7KPRxpogGk1ATA3QZp5nPGDtKuFVNVcaeK3",
-  "/ip4/176.187.197.224/tcp/30333/p2p/12D3KooWFMSANaDiVgSDn7kRbEd8tz5fAXKkG8hEmGEyKYSY7eY6",
-  "/ip4/38.143.58.87/tcp/30333/ws/p2p/12D3KooWFYA2WsVVmYvv8pHnSW2SsPiwK1ombSEUahxyUhEJmA7x",
-  "/ip4/157.90.5.250/tcp/30933/p2p/12D3KooWJDT4hpQcdH6W9Cdt3rLM1vWcVF96H1umvvNwYRiiMn4Q",
-  "/ip4/116.203.89.159/tcp/30333/ws/p2p/12D3KooWJPh1Dn7tEzndBiBnEV3Vc4m4B4Kdu9bCzoxGptMCdLjR",
-  "/ip4/84.208.197.38/tcp/30333/p2p/12D3KooWMAbFpa8BCej4t3YvdCfWyJvXzhrEYTzXg22CuMcKhgV5",
-  "/ip4/195.3.223.174/tcp/30333/p2p/12D3KooWMpz3LEAeRA94LK9wH6NtEzyw1Z6KYUntjz7QwPe3rYNT",
-  "/ip4/149.50.96.58/tcp/30333/p2p/12D3KooWPD2kra9CMWMQ7Y8jZbQeFAfdkGJ3LYZLD82V4E4HqYgc",
-  "/ip4/65.109.142.4/tcp/30333/p2p/12D3KooWSGp485hkoGXUucjWRDKf9AXaYQy9aLzMWpqhPFw816rZ",
-  "/ip4/37.27.247.51/tcp/30333/p2p/12D3KooWSkeGtChmcJWzsp9Wpys3T34KpGxdx7TzjMvioZ8UxMw7"
-]' /usr/local/bin/genesis.json > tmp && sudo mv tmp /usr/local/bin/genesis.json
+cd $HOME && mkdir uomi && cd $HOME/uomi && wget -O genesis.json https://github.com/Uomi-network/uomi-node/releases/latest/download/genesis.json && jq '.bootNodes = [Paste Peers In Here]' /usr/local/bin/genesis.json > tmp && sudo mv tmp /usr/local/bin/genesis.json
 ```
 
 ---
@@ -57,13 +42,14 @@ cd $HOME && mkdir uomi && cd $HOME/uomi && wget -O genesis.json https://github.c
 
 **For Ubuntu 22:**
 ```bash
-wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_22 && chmod +x uomi && sudo cp ./uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp ./genesis.json /usr/local/bin/
+wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_22 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/
 ```
 
 **For Ubuntu 24:**
 ```bash
-wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp ./uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp ./genesis.json /usr/local/bin/
+wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/
 ```
+> 🟢 **Note:** Change `uomi_ubuntu_24` to `uomi`
 
 ---
 
@@ -85,7 +71,12 @@ Group=uomi
 Restart=always
 RestartSec=10
 LimitNOFILE=65535
-ExecStart=/usr/local/bin/uomi     --name "EDIT-WITH-YOUR-NODES-ARCHIVE-NAME"     --chain "/usr/local/bin/genesis.json"     --base-path "/var/lib/uomi"     --pruning archive     --rpc-cors all     --rpc-external     --rpc-methods Safe     --enable-evm-rpc     --prometheus-external     --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
+ExecStart=/usr/local/bin/uomi     --name "Node Name"     --chain "/usr/local/bin/genesis.json"     --base-path "/var/lib/uomi"     --pruning archive     --rpc-cors all     --rpc-external     --rpc-methods Safe     --enable-evm-rpc     --prometheus-external     --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
+---
+
+> 🟢 **Note:** Change `Node Name` to all you want eg `claudya`
+
+---
 
 # Hardening
 ProtectSystem=strict
@@ -97,9 +88,6 @@ ReadWritePaths=/var/lib/uomi
 [Install]
 WantedBy=multi-user.target
 ```
-> 🟢 **Note:** Change `EDIT-WITH-YOUR-NODES-ARCHIVE-NAME` to your own archive node name (e.g., `BUDI-NANGIS`)
-
----
 
 ## ▶️ Running Your Node
 ```bash

@@ -50,7 +50,7 @@ wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/
 ```bash
 wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/
 ```
-> 🟢 **Note:** Change `uomi_ubuntu_24` to `uomi`
+> 🟢 **Note:** Change `uomi_ubuntu_22` or `uomi_ubuntu_24` to `uomi`
 
 ---
 

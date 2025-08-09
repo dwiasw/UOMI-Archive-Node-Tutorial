@@ -93,7 +93,7 @@ ReadWritePaths=/var/lib/uomi
 
 [Install]
 WantedBy=multi-user.target
----
+```
 
 > 🟢 **Note:** Change `node-namwe` to all you want eg `claudya`
 

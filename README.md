@@ -34,21 +34,26 @@ sudo useradd --no-create-home --shell /usr/sbin/nologin uomi && sudo mkdir -p /v
 
 ### 📥 Download & Update `genesis.json`
 ```bash
-cd $HOME && mkdir uomi && cd $HOME/uomi && wget -O genesis.json https://github.com/Uomi-network/uomi-node/releases/latest/download/genesis.json && jq '.bootNodes = [Paste Peers In Here]' /usr/local/bin/genesis.json > tmp && sudo mv tmp /usr/local/bin/genesis.json
+cd $HOME && mkdir uomi && cd $HOME/uomi && wget -O genesis.json https://github.com/Uomi-network/uomi-node/releases/latest/download/genesis.json
 ```
+> 🟢 Edit your genesis.json with 'nano genesin.json' and paste your peers on '.bootNodes = [Paste Peers In Here]'
 
+### 📥 Copy `genesis.json` to '/usr/local/bin/'
+```bash
+sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.json
+```
 ---
 
 ### 🐧 Install Binary
 
 **For Ubuntu 22:**
 ```bash
-wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_22 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/
+wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_22 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.json
 ```
 
 **For Ubuntu 24:**
 ```bash
-wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/
+wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.json
 ```
 > 🟢 **Note:** Change `uomi_ubuntu_22` or `uomi_ubuntu_24` to `uomi`
 

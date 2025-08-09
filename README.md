@@ -29,16 +29,16 @@ sudo useradd --no-create-home --shell /usr/sbin/nologin uomi && sudo mkdir -p /v
 
 ## 3️⃣ Install & Configure Node
 
-> Before you download make sure you update peers on 'genesis.json
+> Before you download make sure you update peers on `genesis.json`
 > Get update peers at https://app.uomi.ai/peers
 
 ### 📥 Download & Update `genesis.json`
 ```bash
 cd $HOME && mkdir uomi && cd $HOME/uomi && wget -O genesis.json https://github.com/Uomi-network/uomi-node/releases/latest/download/genesis.json
 ```
-> 🟢 Edit your genesis.json with 'nano genesin.json' and paste your peers on '.bootNodes = [Paste Peers In Here]'
+> 🟢 Edit your genesis.json with `nano genesin.json` and paste your peers on `.bootNodes = [Paste Peers In Here]`
 
-### 📥 Copy `genesis.json` to '/usr/local/bin/'
+### 📥 Copy `genesis.json` to `/usr/local/bin/`
 ```bash
 sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.json
 ```

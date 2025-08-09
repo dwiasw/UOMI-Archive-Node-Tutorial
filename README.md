@@ -46,17 +46,18 @@ sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.jso
 
 ### 🐧 Install Binary
 
+> 🟢 **Note:** Change file name `uomi_ubuntu_22` or `uomi_ubuntu_24` to `uomi`
+> with comman mv (eg `mv uomi_ubuntu_22 uomi`)
+
 **For Ubuntu 22:**
 ```bash
-wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_22 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.json
+wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_22 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi
 ```
 
 **For Ubuntu 24:**
 ```bash
-wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi && sudo cp genesis.json /usr/local/bin/ && sudo chmod +x /usr/local/bin/genesis.json
+wget -O uomi https://github.com/Uomi-network/uomi-node/releases/latest/download/uomi_ubuntu_24 && chmod +x uomi && sudo cp uomi /usr/local/bin/ && sudo chmod +x /usr/local/bin/uomi
 ```
-> 🟢 **Note:** Change `uomi_ubuntu_22` or `uomi_ubuntu_24` to `uomi`
-
 ---
 
 ### ⚙️ Create Systemd Service

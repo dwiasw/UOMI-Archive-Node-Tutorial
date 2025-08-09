@@ -120,7 +120,7 @@ curl -H "Content-Type: application/json"     -d '{"id":1, "jsonrpc":"2.0", "meth
 
 - **Check logs**
 ```bash
-journalctl -fu uomi.service
+journalctl -f uomi.service
 ```
 
 - **Stop node**

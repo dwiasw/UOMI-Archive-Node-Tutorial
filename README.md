@@ -71,12 +71,7 @@ Group=uomi
 Restart=always
 RestartSec=10
 LimitNOFILE=65535
-ExecStart=/usr/local/bin/uomi     --name "Node Name"     --chain "/usr/local/bin/genesis.json"     --base-path "/var/lib/uomi"     --pruning archive     --rpc-cors all     --rpc-external     --rpc-methods Safe     --enable-evm-rpc     --prometheus-external     --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
----
-
-> 🟢 **Note:** Change `Node Name` to all you want eg `claudya`
-
----
+ExecStart=/usr/local/bin/uomi     --name "EDIT-WITH-YOUR-NODES-ARCHIVE-NAME"     --chain "/usr/local/bin/genesis.json"     --base-path "/var/lib/uomi"     --pruning archive     --rpc-cors all     --rpc-external     --rpc-methods Safe     --enable-evm-rpc     --prometheus-external     --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
 
 # Hardening
 ProtectSystem=strict
@@ -87,7 +82,11 @@ ReadWritePaths=/var/lib/uomi
 
 [Install]
 WantedBy=multi-user.target
-```
+---
+
+> 🟢 **Note:** Change `Node Name` to all you want eg `claudya`
+
+---
 
 ## ▶️ Running Your Node
 ```bash

@@ -29,7 +29,8 @@ sudo useradd --no-create-home --shell /usr/sbin/nologin uomi && sudo mkdir -p /v
 
 ## 3️⃣ Install & Configure Node
 
-> Get available peers at https://app.uomi.ai/peers
+> Before you download make sure you update peers on 'genesis.json
+> Get update peers at https://app.uomi.ai/peers
 
 ### 📥 Download & Update `genesis.json`
 ```bash
@@ -71,7 +72,17 @@ Group=uomi
 Restart=always
 RestartSec=10
 LimitNOFILE=65535
-ExecStart=/usr/local/bin/uomi     --name "EDIT-WITH-YOUR-NODES-ARCHIVE-NAME"     --chain "/usr/local/bin/genesis.json"     --base-path "/var/lib/uomi"     --pruning archive     --rpc-cors all     --rpc-external     --rpc-methods Safe     --enable-evm-rpc     --prometheus-external     --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
+ExecStart=/usr/local/bin/uomi \
+    --name "node-name" \
+    --chain "/usr/local/bin/genesis.json" \
+    --base-path "/var/lib/uomi" \
+    --pruning archive \
+    --rpc-cors all \
+    --rpc-external \
+    --rpc-methods Safe \
+    --enable-evm-rpc \
+    --prometheus-external \
+    --telemetry-url "wss://telemetry.polkadot.io/submit/ 0"
 
 # Hardening
 ProtectSystem=strict
@@ -84,7 +95,7 @@ ReadWritePaths=/var/lib/uomi
 WantedBy=multi-user.target
 ---
 
-> 🟢 **Note:** Change `Node Name` to all you want eg `claudya`
+> 🟢 **Note:** Change `node-namwe` to all you want eg `claudya`
 
 ---
 
